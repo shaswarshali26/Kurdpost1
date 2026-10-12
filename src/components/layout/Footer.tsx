@@ -35,6 +35,7 @@ export default function Footer() {
                 { to: '/tracking', label: 'Track Shipment' },
                 { to: '/services', label: 'Our Services' },
                 { to: '/branches', label: 'Find a Branch' },
+                { to: '/explorer', label: 'Iraq Map Explorer' },
                 { to: '/faq', label: 'FAQ' },
                 { to: '/contact', label: 'Contact Us' },
               ].map(l => (

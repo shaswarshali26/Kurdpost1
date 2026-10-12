@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { HashRouter as BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
@@ -14,6 +15,8 @@ import Branches from './pages/public/Branches';
 import Contact from './pages/public/Contact';
 import FAQ from './pages/public/FAQ';
 import Architecture from './pages/public/Architecture';
+// Loaded on demand so the map engine is not part of the main bundle.
+const Explorer = lazy(() => import('./pages/public/Explorer'));
 
 // Auth pages
 import Login from './pages/auth/Login';
@@ -72,6 +75,16 @@ function AppRoutes() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/architecture" element={<Architecture />} />
       </Route>
+
+      {/* Iraq map explorer: full-screen, outside the public layout */}
+      <Route
+        path="/explorer"
+        element={
+          <Suspense fallback={<div className="fixed inset-0 bg-[#06080f]" aria-busy="true" />}>
+            <Explorer />
+          </Suspense>
+        }
+      />
 
       {/* Auth */}
       <Route path="/login" element={<Login />} />

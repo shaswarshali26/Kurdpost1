@@ -71,3 +71,20 @@ export default defineConfig([
   },
 ])
 ```
+
+## Iraq Map Explorer (prototype)
+
+Open `/#/explorer` for a full-screen map that loads OpenStreetMap features for Iraq live from
+the Overpass API. Pick categories from the grouped list (hospitals, post offices, roads,
+governorate boundaries and more), switch basemaps, toggle the globe, and inspect any feature's
+tags. The Query tab shows the generated Overpass QL and can open it in overpass-turbo.
+
+Code lives in `src/features/explorer/`:
+
+- `categories.ts` — the category catalogue (tag filters, colours, icons, heavy-layer rules)
+- `overpass.ts` — query builder, fetch with mirror fallback and caching, GeoJSON conversion
+- `useLayers.ts` — layer state, concurrency limit, abort handling
+- `ExplorerMap.tsx` — MapLibre GL wrapper (sources, glow/heat/line/fill layers, globe, hover)
+- `components/` — panel, HUD, drawer, hover card, intro overlay
+
+Feasibility notes, limits and the production path are in `docs/iraq-explorer-feasibility.md`.
