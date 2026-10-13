@@ -9,6 +9,7 @@ const navLinks = [
   { to: '/services', label: 'Services' },
   { to: '/tracking', label: 'Track' },
   { to: '/branches', label: 'Branches' },
+  { to: '/explorer', label: 'Explorer' },
   { to: '/architecture', label: 'Architecture' },
   { to: '/contact', label: 'Contact' },
 ];
